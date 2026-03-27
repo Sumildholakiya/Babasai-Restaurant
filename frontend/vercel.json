@@ -1,13 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/babasai-frontend"
-      }
-    }
-  ],
+  "outputDirectory": "dist/babasai-frontend",
   "routes": [
     {
       "src": "/(.*)",
