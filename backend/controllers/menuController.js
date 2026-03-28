@@ -45,7 +45,7 @@ exports.createMenuItem = async (req, res, next) => {
     const { name, description, price, category, isAvailable, imageUrl } = req.body;
 
     // Full backend base URL so frontend can load image from port 5000
-    const BASE_URL = process.env.BASE_URL || 'babasai-restaurant.onrender.com';
+   const BASE_URL = process.env.BASE_URL || 'http://babasai-restaurant.onrender.com';
 
     let image = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400';
     if (req.file) {
