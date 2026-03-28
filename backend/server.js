@@ -19,8 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static files for uploaded images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/menu', require('./routes/menu'));
