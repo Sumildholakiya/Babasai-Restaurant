@@ -45,11 +45,11 @@ exports.createMenuItem = async (req, res, next) => {
     const { name, description, price, category, isAvailable, imageUrl } = req.body;
 
     // Full backend base URL so frontend can load image from port 5000
-    const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
+    const BASE_URL = process.env.BASE_URL || 'babasai-restaurant.onrender.com';
 
     let image = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400';
     if (req.file) {
-      // Store full URL — e.g. http://localhost:5000/uploads/menu-xxx.jpg
+      // Store full URL — e.g. http://babasai-restaurant.onrender.com/uploads/menu-xxx.jpg
       image = BASE_URL + '/uploads/' + req.file.filename;
     } else if (imageUrl && imageUrl.trim()) {
       image = imageUrl.trim();
@@ -68,7 +68,7 @@ exports.createMenuItem = async (req, res, next) => {
 exports.updateMenuItem = async (req, res, next) => {
   try {
     const { name, description, price, category, isAvailable, imageUrl } = req.body;
-    const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
+    const BASE_URL = process.env.BASE_URL || 'http://babasai-restaurant.onrender.com';
 
     const updateData = { name, description, price, category, isAvailable };
 
