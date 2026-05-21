@@ -23,30 +23,34 @@ import { ContactService } from '../../core/services/contact.service';
           </div>
         </div>
 
-        <!-- Nav links -->
+        <!-- Nav -->
         <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+
           <a routerLink="/admin/dashboard" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">📊</span> Dashboard
           </a>
+
           <a routerLink="/admin/menu" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">🍛</span> Menu Items
           </a>
+
           <a routerLink="/admin/orders" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">📦</span> Orders
           </a>
+
           <a routerLink="/admin/users" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">👥</span> Users
           </a>
+
           <a routerLink="/admin/reviews" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">⭐</span> Reviews
           </a>
 
-          <!-- ✅ NEW — Contact Messages with unread badge -->
           <a routerLink="/admin/contacts" routerLinkActive="bg-orange-500 text-white"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
             <span class="text-lg">✉️</span>
@@ -57,9 +61,16 @@ import { ContactService } from '../../core/services/contact.service';
               </span>
             }
           </a>
+
+          <!-- ✅ NEW — Reports link -->
+          <a routerLink="/admin/reports" routerLinkActive="bg-orange-500 text-white"
+            class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all text-sm font-medium">
+            <span class="text-lg">📈</span> Reports
+          </a>
+
         </nav>
 
-        <!-- Bottom actions -->
+        <!-- Bottom -->
         <div class="px-3 py-4 border-t border-gray-800 space-y-1">
           <a routerLink="/home"
             class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-all text-sm">
@@ -81,10 +92,10 @@ import { ContactService } from '../../core/services/contact.service';
             @if (unreadCount() > 0) {
               <a routerLink="/admin/contacts"
                 class="flex items-center gap-1.5 text-sm bg-red-50 text-red-600 px-3 py-1.5 rounded-full font-medium hover:bg-red-100 transition-colors">
-                ✉️ {{ unreadCount() }} unread message{{ unreadCount() > 1 ? 's' : '' }}
+                ✉️ {{ unreadCount() }} unread
               </a>
             }
-            <span class="text-sm text-gray-500 bg-orange-50 text-orange-600 px-3 py-1 rounded-full font-medium">Admin</span>
+            <span class="text-sm bg-orange-50 text-orange-600 px-3 py-1 rounded-full font-medium">Admin</span>
           </div>
         </header>
 
@@ -103,7 +114,6 @@ export class AdminLayoutComponent implements OnInit {
   unreadCount = signal(0);
 
   ngOnInit(): void {
-    // Poll unread contact count every 60 seconds
     this.fetchUnreadCount();
     setInterval(() => this.fetchUnreadCount(), 60000);
   }

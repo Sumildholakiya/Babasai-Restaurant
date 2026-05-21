@@ -16,14 +16,12 @@ export const routes: Routes = [
       { path: 'reviews', loadComponent: () => import('./pages/reviews/reviews.component').then(m => m.ReviewsComponent) },
       { path: 'cart',    loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent), canActivate: [authGuard] },
       { path: 'orders',  loadComponent: () => import('./pages/orders/orders.component').then(m => m.OrdersComponent), canActivate: [authGuard] },
-
-      // ✅ NEW — About & Contact pages
       { path: 'about',   loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
       { path: 'contact', loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent) },
     ]
   },
 
-  // Auth routes (guest only)
+  // Auth routes
   {
     path: 'login',
     loadComponent: () => import('./pages/auth/login/login.component').then(m => m.LoginComponent),
@@ -41,15 +39,16 @@ export const routes: Routes = [
     loadComponent: () => import('./layout/admin-layout/admin-layout.component').then(m => m.AdminLayoutComponent),
     canActivate: [adminGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '',          redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadComponent: () => import('./pages/admin/dashboard/dashboard.component').then(m => m.DashboardComponent) },
       { path: 'menu',      loadComponent: () => import('./pages/admin/manage-menu/manage-menu.component').then(m => m.ManageMenuComponent) },
       { path: 'orders',    loadComponent: () => import('./pages/admin/manage-orders/manage-orders.component').then(m => m.ManageOrdersComponent) },
       { path: 'users',     loadComponent: () => import('./pages/admin/manage-users/manage-users.component').then(m => m.ManageUsersComponent) },
       { path: 'reviews',   loadComponent: () => import('./pages/admin/manage-reviews/manage-reviews.component').then(m => m.ManageReviewsComponent) },
-
-      // ✅ NEW — Admin contact messages page
       { path: 'contacts',  loadComponent: () => import('./pages/admin/manage-contacts/manage-contacts.component').then(m => m.ManageContactsComponent) },
+
+      // ✅ NEW — Reports page
+      { path: 'reports',   loadComponent: () => import('./pages/admin/reports/reports.component').then(m => m.ReportsComponent) },
     ]
   },
 

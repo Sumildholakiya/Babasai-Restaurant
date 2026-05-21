@@ -92,9 +92,11 @@ import { MenuItem, Review } from '../../models';
           @for (item of featuredItems(); track item._id) {
             <div class="card group">
               <div class="relative overflow-hidden h-48">
-                <img [src]="item.image" [alt]="item.name"
+                 <a routerLink="/menu">
+              <img [src]="item.image" [alt]="item.name"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'">
+                  </a>
                 <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-orange-600 text-xs font-semibold px-2 py-1 rounded-full">
                   {{ item.category }}
                 </span>
@@ -122,11 +124,13 @@ import { MenuItem, Review } from '../../models';
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           @for (feature of features; track feature.title) {
-            <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+          <a routerLink="/about" >
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
               <div class="text-4xl mb-4">{{ feature.icon }}</div>
               <h3 class="font-semibold text-gray-800 mb-2">{{ feature.title }}</h3>
               <p class="text-gray-500 text-sm leading-relaxed">{{ feature.desc }}</p>
-            </div>
+            </div> 
+             </a> 
           }
         </div>
       </div>
@@ -147,7 +151,8 @@ import { MenuItem, Review } from '../../models';
       @if (reviews().length > 0) {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           @for (review of reviews(); track review._id) {
-            <div class="card p-5">
+           <a routerLink="/reviews">
+           <div class="card p-5">
               <div class="flex items-center gap-1 mb-3">
                 @for (star of getStars(review.rating); track $index) {
                   <span class="text-yellow-400 text-sm">★</span>
@@ -156,6 +161,7 @@ import { MenuItem, Review } from '../../models';
                   <span class="text-gray-200 text-sm">★</span>
                 }
               </div>
+              
               <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">"{{ review.message }}"</p>
               <div class="flex items-center gap-2">
                 <div class="w-7 h-7 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xs font-bold">
@@ -164,6 +170,7 @@ import { MenuItem, Review } from '../../models';
                 <span class="text-xs font-medium text-gray-700">{{ getUserName(review) }}</span>
               </div>
             </div>
+            </a> 
           }
         </div>
       } @else {
