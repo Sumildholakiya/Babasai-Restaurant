@@ -165,7 +165,7 @@ npm start
 |-------|--------------------------|------------|
 | Admin | admin@babasai.com        | admin123   |
 | User  | rahul@example.com        | user123    |
-| User  | priya@example.com        | user123    |
+| User  | sumil@example.com        | user123    |
 
 ---
 
