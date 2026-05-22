@@ -1,5 +1,10 @@
 # 🍽️ BabaSai Restaurant — Full-Stack MEAN Application
 
+## 👤 Developer
+
+**Sumil Dholakiya**
+
+For questions, feedback, or support regarding this hotel management system, please feel free to reach out.
 > Authentic Indian Cuisine | Surat, Gujarat, India | 📞 6355653553
 
 A complete, production-ready restaurant management system built exclusively with the **MEAN Stack**:
